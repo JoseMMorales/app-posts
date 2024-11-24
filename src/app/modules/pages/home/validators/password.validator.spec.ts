@@ -11,7 +11,7 @@ describe('RequiredValidator', () => {
       declarations: [PasswordValidator],
     }).compileComponents();
 
-    control = new FormControl('input');
+    control = new FormControl('password');
   });
 
   it('should create', () => {
