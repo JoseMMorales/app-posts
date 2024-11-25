@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { PasswordValidator } from 'src/app/modules/pages/home/validators/password.validator';
+import { PasswordValidator } from '../../validators/password.validator';
 
 @Component({
   selector: 'app-login-form',
