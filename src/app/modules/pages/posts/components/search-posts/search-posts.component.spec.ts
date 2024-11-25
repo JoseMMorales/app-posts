@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchPostsComponent } from './search-posts.component';
 import { Post } from 'src/app/modules/shared/models/post.model';
 
-export const postMockedInTest: Post = {
+export const postMocked: Post = {
   id: 1,
   title: 'FirstTitle',
   body: 'FirstBody',
@@ -17,7 +17,7 @@ export const postMockedInTest: Post = {
 };
 
 export const postsMocked: Post[] = [
-  postMockedInTest,
+  postMocked,
   {
     id: 2,
     title: 'SecondTitle',
@@ -52,7 +52,7 @@ describe('SearchPostsComponent', () => {
   });
 
   it('should emit empty Posts', () => {
-    const spyEmit = spyOn(component.postsFilteredEmitted, 'emit');
+    const spyEmit = spyOn(component.postsFiltered, 'emit');
 
     component.filterPosts('');
 
@@ -62,20 +62,20 @@ describe('SearchPostsComponent', () => {
   it('should emit Post filtering by title', () => {
     component.postsToFilter = postsMocked;
 
-    const spyEmit = spyOn(component.postsFilteredEmitted, 'emit');
+    const spyEmit = spyOn(component.postsFiltered, 'emit');
 
     component.filterPosts('FirstTitle');
 
-    expect(spyEmit).toHaveBeenCalledOnceWith([postMockedInTest]);
+    expect(spyEmit).toHaveBeenCalledOnceWith([postMocked]);
   });
 
   it('should emit Post filtering by body', () => {
     component.postsToFilter = postsMocked;
 
-    const spyEmit = spyOn(component.postsFilteredEmitted, 'emit');
+    const spyEmit = spyOn(component.postsFiltered, 'emit');
 
     component.filterPosts('FirstBody');
 
-    expect(spyEmit).toHaveBeenCalledOnceWith([postMockedInTest]);
+    expect(spyEmit).toHaveBeenCalledOnceWith([postMocked]);
   });
 });

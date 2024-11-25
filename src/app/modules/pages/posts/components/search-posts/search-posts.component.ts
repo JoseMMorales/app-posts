@@ -19,7 +19,7 @@ import { Post } from 'src/app/modules/shared/models/post.model';
 export class SearchPostsComponent {
   searchPost: string = '';
   @Input() postsToFilter: Post[] = [];
-  @Output() postsFilteredEmitted: EventEmitter<Post[]> = new EventEmitter<Post[]>();
+  @Output() postsFiltered: EventEmitter<Post[]> = new EventEmitter<Post[]>();
 
   filterPosts(searchPost: string): void {
     let postsFiltered: Post[] = [];
@@ -35,6 +35,6 @@ export class SearchPostsComponent {
       });
     }
 
-    this.postsFilteredEmitted.emit(postsFiltered);
+    this.postsFiltered.emit(postsFiltered);
   }
 }
