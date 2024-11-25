@@ -5,9 +5,8 @@ import {
   postResponseMocked,
   postResponseReverseMocked,
   postMocked,
-  postSecondMocked,
   postThirdMocked,
-} from 'src/app/modules/core/store/testing/mock/post.mock';
+} from 'src/app/modules/core/testing/mock/post.mock';
 
 describe('PostService', () => {
   let service: PostService;

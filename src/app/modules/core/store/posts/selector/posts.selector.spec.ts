@@ -1,4 +1,4 @@
-import { postResponseMocked } from '../../testing/mock/post.mock';
+import { postResponseMocked } from '../../../testing/mock/post.mock';
 import * as selector from './posts.selector';
 
 describe('PostsSelector', () => {

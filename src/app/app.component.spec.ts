@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Store, StoreModule } from '@ngrx/store';
 
 import { appReducer } from './modules/core/store/app.state';
-import { StoreMock } from './modules/core/store/testing/store-mock';
+import { StoreMock } from './modules/core/testing/store-mock';
 
 import { AppComponent } from './app.component';
 

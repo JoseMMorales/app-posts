@@ -11,11 +11,8 @@ import {
   postResponseMocked,
   postMocked,
   postWithCommentMocked,
-} from '../../testing/mock/post.mock';
-import {
-  commentMocked,
-  commentResponseMocked,
-} from '../../testing/mock/comment.mock';
+} from '../../../testing/mock/post.mock';
+import { commentResponseMocked } from '../../../testing/mock/comment.mock';
 
 describe('PostsReducer', () => {
   it('should be created', () => {

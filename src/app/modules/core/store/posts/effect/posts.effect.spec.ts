@@ -24,9 +24,9 @@ import {
   postResponseMocked,
   postResponseReverseMocked,
   postMocked,
-} from '../../testing/mock/post.mock';
-import { PostHttpServiceMock } from '../../testing/stub/post-http.service.mock';
-import { commentMocked } from '../../testing/mock/comment.mock';
+} from '../../../testing/mock/post.mock';
+import { PostHttpServiceMock } from '../../../testing/stub/post-http.service.mock';
+import { commentMocked } from '../../../testing/mock/comment.mock';
 
 describe('PostsEffects', () => {
   let effect: PostsEffects;

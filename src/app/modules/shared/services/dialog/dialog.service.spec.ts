@@ -3,8 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { DialogService } from './dialog.service';
 import { MatDialog } from '@angular/material/dialog';
 
-import { postMocked } from 'src/app/modules/core/store/testing/mock/post.mock';
-import { MatDialogMock } from 'src/app/modules/core/store/testing/stub/dialog.service.mock';
+import { postMocked } from 'src/app/modules/core/testing/mock/post.mock';
+import { MatDialogMock } from 'src/app/modules/core/testing/stub/dialog.service.mock';
 
 describe('DialogService', () => {
   let service: DialogService;

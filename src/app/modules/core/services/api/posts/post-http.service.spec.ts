@@ -9,8 +9,8 @@ import { PostHttpService } from './post-http.service';
 import {
   postResponseMocked,
   postMocked,
-} from '../../../store/testing/mock/post.mock';
-import { commentResponseMocked } from '../../../store/testing/mock/comment.mock';
+} from '../../../testing/mock/post.mock';
+import { commentResponseMocked } from '../../../testing/mock/comment.mock';
 
 describe('PostHttpService', () => {
   let service: PostHttpService;

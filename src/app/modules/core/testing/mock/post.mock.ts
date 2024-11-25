@@ -1,25 +1,25 @@
-import { commentMocked, commentResponseMocked } from './comment.mock';
+import { commentResponseMocked } from './comment.mock';
 
 export const postMocked = {
   id: 1,
-  title: 'test',
-  body: 'test',
+  title: 'FirstTitle',
+  body: 'FirstBody',
   userId: 1,
   comments: [],
 };
 
 export const postSecondMocked = {
   id: 1,
-  title: 'test',
-  body: 'test',
+  title: 'SecondTitle',
+  body: 'SecondBody',
   userId: 2,
   comments: [],
 };
 
 export const postThirdMocked = {
   id: 1,
-  title: 'test',
-  body: 'test',
+  title: 'FirstTitle',
+  body: 'FirstBody',
   userId: 3,
   comments: [],
 };
