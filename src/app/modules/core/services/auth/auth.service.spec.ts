@@ -25,6 +25,9 @@ describe('AuthenticationService', () => {
   });
 
   it('should return if user is logged in FALSE', () => {
+    spyOn(window.localStorage, 'getItem').and.callFake(() => {
+      return null;
+    });
     expect(service.isLoggedIn()).toBe(false);
   });
 });

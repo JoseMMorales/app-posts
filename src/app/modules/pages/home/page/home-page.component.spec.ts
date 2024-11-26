@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -38,4 +39,19 @@ describe('HomePageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should submit login values and navigate to posts', () => {
+    const router = TestBed.inject(Router);
+    spyOn(router, 'navigate');
+    const localStorageSpy = spyOn(
+      window.localStorage,
+      'setItem'
+    ).and.callThrough();
+
+    component.loginValuesSubmitted('email@email.com');
+
+    expect(router.navigate).toHaveBeenCalledWith(['/posts']);
+    expect(localStorageSpy).toHaveBeenCalled();
+  });
+
 });

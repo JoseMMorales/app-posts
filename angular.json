@@ -80,7 +80,7 @@
           "options": {
             "codeCoverage": true,
             "codeCoverageExclude": [
-              "src/app/modules/core/store/testing/**",
+              "src/app/modules/core/testing/**",
               "src/environment/**"
             ],
             "polyfills": ["zone.js", "zone.js/testing"],
