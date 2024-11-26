@@ -27,6 +27,7 @@ import { DestroyService } from 'src/app/modules/shared/services/destroy/destroy.
 
 import { PostsPageComponent } from './posts-page.component';
 import { Post } from 'src/app/modules/shared/models/post.model';
+import { PostSort } from 'src/app/modules/shared/const/sort';
 
 describe('PostsPageComponent', () => {
   let component: PostsPageComponent;
@@ -104,14 +105,14 @@ describe('PostsPageComponent', () => {
 
   it('should sort posts ASCENDING', () => {
     component.postToRender = postResponseMocked;
-    component.sortPosts('ASCENDING');
+    component.sortPosts(PostSort.ASCENDING);
 
     expect(component.postToRender).toEqual(postResponseMocked);
   });
 
   it('should sort posts DESCENDING', () => {
     component.postToRender = postResponseMocked;
-    component.sortPosts('DESCENDING');
+    component.sortPosts(PostSort.DESCENDING);
 
     expect(component.postToRender).toEqual(postResponseReverseMocked);
   });

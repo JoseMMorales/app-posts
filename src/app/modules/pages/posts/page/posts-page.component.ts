@@ -19,6 +19,7 @@ import { Post } from 'src/app/modules/shared/models/post.model';
 import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
 import { getIsSpinnerVisible } from 'src/app/modules/core/store/spinner/spinner.selector';
 import { DestroyService } from 'src/app/modules/shared/services/destroy/destroy.service';
+import { PostSort } from 'src/app/modules/shared/const/sort';
 
 @Component({
   selector: 'app-posts-page',
@@ -78,7 +79,7 @@ export class PostsPageComponent implements OnInit {
   sortPosts(value: string): void {
     let arraySorted: Post[] = [];
 
-    value === 'ASCENDING'
+    value === PostSort.ASCENDING
       ? (arraySorted = [...this.postToRender].sort((a, b) =>
           a.title > b.title ? 1 : -1
         ))
