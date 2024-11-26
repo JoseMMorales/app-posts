@@ -12,7 +12,7 @@ export class PostService {
 
     const { userId } = postList.reduce((prev, current) => {
       return Number(prev.userId) > Number(current.userId) ? prev : current;
-    });
+    }, emptyPost);
 
     if (userId) {
       newPostWithId = {

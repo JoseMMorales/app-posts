@@ -60,7 +60,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(): void {
-    this.router.navigate(['/master']);
+    this.router.navigate(['/home']);
   }
 
   private getRoute(): void {
