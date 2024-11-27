@@ -20,6 +20,7 @@ export class PostHttpServiceMock {
     return of(postMocked);
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   deletePost(): Observable<{}> {
     return of({});
   }

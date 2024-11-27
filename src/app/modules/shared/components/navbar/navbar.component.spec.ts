@@ -4,7 +4,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import {
   postMocked,
   postResponseMocked,
-  postThirdMocked
+  postThirdMocked,
 } from 'src/app/modules/core/testing/mock/post.mock';
 import {
   routerEvent$,
@@ -33,10 +33,10 @@ describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   let router: Router;
-  let dispatchSpy: any;
+  let dispatchSpy: unknown;
   let dialogService: DialogService;
   let postService: PostService;
-  let store: MockStore<{ posts: Post[]; }>;
+  let store: MockStore<{ posts: Post[] }>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -64,7 +64,7 @@ describe('NavbarComponent', () => {
         },
         DestroyService,
         DialogService,
-        MatDialog
+        MatDialog,
       ],
     }).compileComponents();
 
@@ -83,10 +83,11 @@ describe('NavbarComponent', () => {
   });
 
   it('should open dialog to create a post', () => {
-    const spyPostService = spyOn(postService, 'addUserIdInPost').and.returnValues(postThirdMocked);
-    spyOn(dialogService, 'dialogDispatch').and.returnValue(
-      of(postMocked)
-    );
+    const spyPostService = spyOn(
+      postService,
+      'addUserIdInPost'
+    ).and.returnValues(postThirdMocked);
+    spyOn(dialogService, 'dialogDispatch').and.returnValue(of(postMocked));
 
     component.openDialogToCreatePost();
 
@@ -103,7 +104,6 @@ describe('NavbarComponent', () => {
 
     expect(router.navigate).toHaveBeenCalledWith(['/home']);
   });
-
 
   it('should getRoute NOT identify posts are in page', () => {
     const navEndEventFalse: NavigationEnd = new NavigationEnd(

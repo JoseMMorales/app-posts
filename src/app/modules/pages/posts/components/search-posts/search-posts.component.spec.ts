@@ -8,7 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchPostsComponent } from './search-posts.component';
 import { Post } from 'src/app/modules/shared/models/post.model';
 
-import { postMocked, postSecondMocked } from 'src/app/modules/core/testing/mock/post.mock';
+import {
+  postMocked,
+  postSecondMocked,
+} from 'src/app/modules/core/testing/mock/post.mock';
 
 export const postsMocked: Post[] = [postMocked, postSecondMocked];
 

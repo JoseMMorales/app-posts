@@ -79,7 +79,7 @@
 </ng-template>
 
 <ng-template
-  [ngIf]="!postToRender.length && !(isGLobalSpinnerVisible$ | async)"
+  [ngIf]="!postToRender.length && (isGLobalSpinnerVisible$ | async) === false"
 >
   <p class="not-found-message">
     Sorry not Posts found in your search! Try again :)

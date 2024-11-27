@@ -30,7 +30,7 @@ describe('PostHttpService', () => {
   });
 
   it('should get posts', () => {
-    service.getPosts().subscribe((res) => {
+    service.getPosts().subscribe(res => {
       expect(res).toEqual(postResponseMocked);
     });
 
@@ -43,7 +43,7 @@ describe('PostHttpService', () => {
   });
 
   it('should create post', () => {
-    service.createPost(postMocked).subscribe((res) => {
+    service.createPost(postMocked).subscribe(res => {
       expect(res).toEqual(postMocked);
     });
 
@@ -56,7 +56,7 @@ describe('PostHttpService', () => {
   });
 
   it('should update post', () => {
-    service.updatePost(postMocked).subscribe((res) => {
+    service.updatePost(postMocked).subscribe(res => {
       expect(res).toEqual(postMocked);
     });
 
@@ -84,7 +84,7 @@ describe('PostHttpService', () => {
   });
 
   it('should get comments', () => {
-    service.getPostComments().subscribe((res) => {
+    service.getPostComments().subscribe(res => {
       expect(res).toEqual(commentResponseMocked);
     });
 

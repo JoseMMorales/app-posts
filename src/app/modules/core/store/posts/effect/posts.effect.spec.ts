@@ -30,7 +30,7 @@ import { commentMocked } from '../../../testing/mock/comment.mock';
 
 describe('PostsEffects', () => {
   let effect: PostsEffects;
-  let actions$: Observable<any>;
+  let actions$: Observable<unknown>;
   let service: PostHttpService;
 
   beforeEach(() => {
@@ -64,7 +64,7 @@ describe('PostsEffects', () => {
         posts: postResponseMocked,
       });
 
-      effect.loadPosts$.subscribe((res) => {
+      effect.loadPosts$.subscribe(res => {
         expect(res).toEqual(expectedAction);
         expect(spy).toHaveBeenCalled();
       });
@@ -80,7 +80,7 @@ describe('PostsEffects', () => {
         payload: { message: 'Error' },
       });
 
-      effect.loadPosts$.subscribe((res) => {
+      effect.loadPosts$.subscribe(res => {
         expect(res.type).toEqual(expectedAction.type);
         expect(spy).toHaveBeenCalled();
       });
@@ -96,7 +96,7 @@ describe('PostsEffects', () => {
         posts: postResponseReverseMocked,
       });
 
-      effect.createPosts$.subscribe((res) => {
+      effect.createPosts$.subscribe(res => {
         expect(res).toEqual(expectedAction);
         expect(spy).toHaveBeenCalled();
       });
@@ -112,7 +112,7 @@ describe('PostsEffects', () => {
         payload: { message: 'Error' },
       });
 
-      effect.createPosts$.subscribe((res) => {
+      effect.createPosts$.subscribe(res => {
         expect(res.type).toEqual(expectedAction.type);
         expect(spy).toHaveBeenCalled();
       });
@@ -128,7 +128,7 @@ describe('PostsEffects', () => {
         posts: [postMocked],
       });
 
-      effect.updatePosts$.subscribe((res) => {
+      effect.updatePosts$.subscribe(res => {
         expect(res).toEqual(expectedAction);
         expect(spy).toHaveBeenCalled();
       });
@@ -144,7 +144,7 @@ describe('PostsEffects', () => {
         payload: { message: 'Error' },
       });
 
-      effect.updatePosts$.subscribe((res) => {
+      effect.updatePosts$.subscribe(res => {
         expect(res.type).toEqual(expectedAction.type);
         expect(spy).toHaveBeenCalled();
       });
@@ -160,7 +160,7 @@ describe('PostsEffects', () => {
         posts: [],
       });
 
-      effect.deletePosts$.subscribe((res) => {
+      effect.deletePosts$.subscribe(res => {
         expect(res).toEqual(expectedAction);
         expect(spy).toHaveBeenCalled();
       });
@@ -176,7 +176,7 @@ describe('PostsEffects', () => {
         payload: { message: 'Error' },
       });
 
-      effect.deletePosts$.subscribe((res) => {
+      effect.deletePosts$.subscribe(res => {
         expect(res.type).toEqual(expectedAction.type);
         expect(spy).toHaveBeenCalled();
       });
@@ -192,7 +192,7 @@ describe('PostsEffects', () => {
         comments: [commentMocked],
       });
 
-      effect.loadComments$.subscribe((res) => {
+      effect.loadComments$.subscribe(res => {
         expect(res).toEqual(expectedAction);
         expect(spy).toHaveBeenCalled();
       });
@@ -208,7 +208,7 @@ describe('PostsEffects', () => {
         payload: { message: 'Error' },
       });
 
-      effect.loadComments$.subscribe((res) => {
+      effect.loadComments$.subscribe(res => {
         expect(res.type).toEqual(expectedAction.type);
         expect(spy).toHaveBeenCalled();
       });

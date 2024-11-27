@@ -41,6 +41,7 @@ describe('LoginFormComponent', () => {
     fixture = TestBed.createComponent(LoginFormComponent);
     component = fixture.componentInstance;
     debugElementForm = fixture.debugElement.query(By.css('form'));
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     buttonSubmit = debugElementForm.nativeElement.querySelector('button');
     fixture.detectChanges();
   });

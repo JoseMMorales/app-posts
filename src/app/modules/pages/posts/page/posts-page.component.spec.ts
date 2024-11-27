@@ -32,9 +32,8 @@ import { PostSort } from 'src/app/modules/shared/const/sort';
 describe('PostsPageComponent', () => {
   let component: PostsPageComponent;
   let fixture: ComponentFixture<PostsPageComponent>;
-  let dispatchSpy: any;
-  let store: MockStore<{ posts: Post[]; }>;
-  let postService: PostService;
+  let dispatchSpy: unknown;
+  let store: MockStore<{ posts: Post[] }>;
   let dialogService: DialogService;
 
   beforeEach(async () => {
@@ -70,7 +69,6 @@ describe('PostsPageComponent', () => {
     component = fixture.componentInstance;
     store = TestBed.inject(MockStore);
     dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
-    postService = TestBed.inject(PostService);
     dialogService = TestBed.inject(DialogService);
     fixture.detectChanges();
   });

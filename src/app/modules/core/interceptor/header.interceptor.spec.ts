@@ -9,7 +9,6 @@ import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 
 describe('HeaderInterceptor', () => {
-  let interceptor: HeaderInterceptor;
   let client: HttpClient;
   let httpController: HttpTestingController;
 
@@ -31,7 +30,7 @@ describe('HeaderInterceptor', () => {
   it('should add poperty in header', () => {
     const url = `${environment.baseURL}/posts`;
 
-    client.get(url).subscribe((res) => {
+    client.get(url).subscribe(res => {
       expect(res).toBeTruthy();
     });
     const httpReq = httpController.expectOne(url);

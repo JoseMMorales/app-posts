@@ -49,10 +49,10 @@ export class PostsEffects {
       ofType(PostsLoadActions.load),
       mergeMap(() => {
         return this.postService.getPosts().pipe(
-          map((postsResponse) => {
+          map(postsResponse => {
             return PostsLoadActions.loadSuccess({ posts: postsResponse });
           }),
-          catchError((error) => of(PostsLoadActions.loadFailed(error)))
+          catchError(error => of(PostsLoadActions.loadFailed(error)))
         );
       })
     );
@@ -67,7 +67,7 @@ export class PostsEffects {
       withLatestFrom(this.store$.select(selectPosts)),
       mergeMap(([action, postState]) => {
         return this.postService.createPost(action.post).pipe(
-          map((postResponse) => {
+          map(postResponse => {
             const postsInStore = postState;
             const postsArrayUpdated = [postResponse, ...postsInStore];
 
@@ -75,7 +75,7 @@ export class PostsEffects {
               posts: [...postsArrayUpdated],
             });
           }),
-          catchError((error) =>
+          catchError(error =>
             of(PostsCreateActions.createFailed({ payload: error }))
           )
         );
@@ -92,10 +92,10 @@ export class PostsEffects {
       withLatestFrom(this.store$.select(selectPosts)),
       mergeMap(([action, storeState]) => {
         return this.postService.updatePost(action.post).pipe(
-          map((postResponseFromAPI) => {
+          map(postResponseFromAPI => {
             const postsInStore = storeState;
 
-            const postsArrayUpdated = postsInStore.map((postInStore) => {
+            const postsArrayUpdated = postsInStore.map(postInStore => {
               if (postInStore.id === postResponseFromAPI.id) {
                 return {
                   ...postInStore,
@@ -110,7 +110,7 @@ export class PostsEffects {
               posts: [...postsArrayUpdated],
             });
           }),
-          catchError((error) =>
+          catchError(error =>
             of(PostsUpdateActions.updateFailed({ payload: error }))
           )
         );
@@ -131,14 +131,14 @@ export class PostsEffects {
             const postsInStore = storeState;
             const postRemoved = action.id;
             const postsArrayUpdated = postsInStore.filter(
-              (post) => post.id !== postRemoved
+              post => post.id !== postRemoved
             );
 
             return PostsDeleteActions.deleteSuccess({
               posts: [...postsArrayUpdated],
             });
           }),
-          catchError((error) =>
+          catchError(error =>
             of(PostsDeleteActions.deleteFailed({ payload: error }))
           )
         );
@@ -151,12 +151,12 @@ export class PostsEffects {
       ofType(PostsCommentActions.commentLoad),
       mergeMap(() => {
         return this.postService.getPostComments().pipe(
-          map((commentsResponse) => {
+          map(commentsResponse => {
             return PostsCommentActions.commentSuccess({
               comments: [...commentsResponse],
             });
           }),
-          catchError((error) =>
+          catchError(error =>
             of(PostsCommentActions.commentFailed({ payload: error }))
           )
         );

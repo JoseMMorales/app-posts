@@ -9,15 +9,14 @@ import { Post } from 'src/app/modules/shared/models/post.model';
       <input
         matInput
         [(ngModel)]="searchPost"
-        (keyup)="filterPosts(searchPost)"
-      />
+        (keyup)="filterPosts(searchPost)" />
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
   </div>`,
   styleUrls: ['./search-posts.component.scss'],
 })
 export class SearchPostsComponent {
-  searchPost: string = '';
+  searchPost = '';
   @Input() postsToFilter: Post[] = [];
   @Output() postsFiltered: EventEmitter<Post[]> = new EventEmitter<Post[]>();
 

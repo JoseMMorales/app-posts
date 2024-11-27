@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, filter, skip, takeUntil } from 'rxjs';
+import { BehaviorSubject, filter, map, skip, takeUntil } from 'rxjs';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 import { Store } from '@ngrx/store';
 import { selectPosts } from 'src/app/modules/core/store/posts/selector/posts.selector';
+import { PostsCreateActions } from 'src/app/modules/core/store/posts/posts.actions';
 
 import { Post } from '../../models/post.model';
 
+import { buttonTextCreateForm, titleCreateForm } from '../../const/post';
+import { NavigationEnd, Router, RouterEvent, Event } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { PostService } from '../../services/post/post.service';
 import { DialogService } from '../../services/dialog/dialog.service';
-import { buttonTextCreateForm, titleCreateForm } from '../../const/post';
-import { NavigationEnd, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { DestroyService } from '../../services/destroy/destroy.service';
-import { PostsCreateActions } from 'src/app/modules/core/store/posts/posts.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -67,10 +68,14 @@ export class NavbarComponent implements OnInit {
     this.router.events
       .pipe(
         takeUntil(this.destroyed$),
-        filter((event: any) => event instanceof NavigationEnd)
+        filter(
+          (eventFilter: Event | RouterEvent) =>
+            eventFilter instanceof NavigationEnd
+        ),
+        map(event => event as NavigationEnd)
       )
-      .subscribe((event: NavigationEnd) => {
-        event.urlAfterRedirects === '/posts'
+      .subscribe((eventNavigation: NavigationEnd) => {
+        eventNavigation.urlAfterRedirects === '/posts'
           ? this.isPostsPage$.next(true)
           : this.isPostsPage$.next(false);
       });
@@ -80,6 +85,6 @@ export class NavbarComponent implements OnInit {
     this.store
       .select(selectPosts)
       .pipe(takeUntil(this.destroyed$), skip(1))
-      .subscribe((res) => (this.postList = res));
+      .subscribe(res => (this.postList = res));
   }
 }

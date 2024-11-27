@@ -5,8 +5,6 @@ import { emptyPost } from '../../const/post';
 
 @Injectable()
 export class PostService {
-  constructor() {}
-
   addUserIdInPost(postList: Post[], postCreated: Post): Post {
     let newPostWithId: Post = emptyPost;
 

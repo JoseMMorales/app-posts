@@ -5,5 +5,8 @@ export const routerEvent$: Subject<RouterEvent> = new Subject<RouterEvent>();
 
 export class RouterMock {
   events = routerEvent$;
-  navigate() {}
+
+  navigate() {
+    return true;
+  }
 }

@@ -19,25 +19,25 @@ describe('OneValidatorPipe', () => {
   it('should return required', () => {
     const oneErrorRequired: ValidationErrors = { required: true };
 
-      expect(
-        oneValidatorPipe.transform(oneErrorRequired, ['required'])
-      ).toEqual(oneErrorRequired);
+    expect(oneValidatorPipe.transform(oneErrorRequired, ['required'])).toEqual(
+      oneErrorRequired
+    );
   });
 
   it('should return minlength', () => {
     const oneErrorMinlength: ValidationErrors = { minlength: true };
 
-    expect(oneValidatorPipe.transform(oneErrorMinlength, ['minlength'])).toEqual(
-      oneErrorMinlength
-    );
+    expect(
+      oneValidatorPipe.transform(oneErrorMinlength, ['minlength'])
+    ).toEqual(oneErrorMinlength);
   });
 
   it('should return passwordSecure', () => {
     const oneErrorPasswordSecure: ValidationErrors = { passwordSecure: true };
 
-    expect(oneValidatorPipe.transform(oneErrorPasswordSecure, ['passwordSecure'])).toEqual(
-      oneErrorPasswordSecure
-    );
+    expect(
+      oneValidatorPipe.transform(oneErrorPasswordSecure, ['passwordSecure'])
+    ).toEqual(oneErrorPasswordSecure);
   });
 
   it('should NOT return random error', () => {

@@ -8,7 +8,10 @@ type OnlyOnError = false | ValidationErrors | null;
   standalone: true,
 })
 export class OneValidatorPipe implements PipeTransform {
-  transform(allErrors: OnlyOnError, errorsPripority: string[]): any {
+  transform(
+    allErrors: OnlyOnError,
+    errorsPripority: string[]
+  ): ValidationErrors | null {
     if (!allErrors) {
       return null;
     }
@@ -16,7 +19,7 @@ export class OneValidatorPipe implements PipeTransform {
     const onlyOneError: OnlyOnError = {};
 
     errorsPripority.some(
-      (error) => allErrors[error] && (onlyOneError[error] = allErrors[error])
+      error => allErrors[error] && (onlyOneError[error] = allErrors[error])
     );
 
     return onlyOneError;

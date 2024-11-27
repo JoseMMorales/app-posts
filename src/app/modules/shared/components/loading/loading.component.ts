@@ -13,8 +13,6 @@ import { CommonModule } from '@angular/common';
   imports: [MatProgressSpinnerModule, CommonModule],
 })
 export class LoadingComponent {
-  constructor() {}
-
   @Input()
   isLoading: boolean | null = false;
 }

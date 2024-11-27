@@ -94,7 +94,7 @@ export class PostsPageComponent implements OnInit {
     this.store
       .select(selectPosts)
       .pipe(takeUntil(this.destroyed$), skip(1))
-      .subscribe((res) => {
+      .subscribe(res => {
         this.postList = res;
         this.postToRender = this.postList;
       });

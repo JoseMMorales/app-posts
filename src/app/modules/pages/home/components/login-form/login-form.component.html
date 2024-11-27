@@ -39,21 +39,21 @@
             (password.dirty || password.touched) &&
             password.errors
             | onlyOneError
-              : ['required', 'minlength', 'passwordSecure'] as error
+              : ['required', 'minlength', 'passwordSecure']
         "
       >
-        <small class="error-message" *ngIf="error.required">
+        <small class="error-message" *ngIf="loginForm.get('password')?.hasError('required')">
           The password is mandatory
         </small>
 
-        <small class="error-message" *ngIf="error.passwordSecure">
+        <small class="error-message" *ngIf="loginForm.get('password')?.hasError('passwordSecure')">
           You must add UpperCase, LowerCase and numeric character
         </small>
 
-        <small class="error-message" *ngIf="error.minlength">
+        <small class="error-message" *ngIf="loginForm.get('password')?.hasError('minlength')">
           Your Password must have between
-          {{ error.minlength.requiredLength }} and 15 chars, but it only has
-          {{ error.minlength.actualLength }}
+          {{loginForm.get('password')?.errors?.['minlength'].requiredLength}} and 15 chars, but it only has
+          {{ loginForm.get('password')?.value.length }}
         </small>
       </ng-container>
 

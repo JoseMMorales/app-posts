@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./modules/pages/home/home.module').then((m) => m.HomeModule),
+      import('./modules/pages/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'posts',
     loadChildren: () =>
-      import('./modules/pages/posts/posts.module').then((m) => m.PostsModule),
+      import('./modules/pages/posts/posts.module').then(m => m.PostsModule),
     canActivate: [authGuard],
   },
 

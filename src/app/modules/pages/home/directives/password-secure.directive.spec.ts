@@ -1,6 +1,11 @@
 import { PasswordSecureDirective } from './password-secure.directive';
 import { TestBed } from '@angular/core/testing';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { PasswordValidator } from '../validators/password.validator';
 
 describe('PasswordSecureDirective', () => {
@@ -8,16 +13,12 @@ describe('PasswordSecureDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-      ],
-      providers: [PasswordValidator]
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [PasswordValidator],
     });
 
     directive = new PasswordSecureDirective();
   });
-
 
   it('should create a directive instance', () => {
     expect(directive).toBeTruthy();

@@ -53,5 +53,4 @@ describe('HomePageComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['/posts']);
     expect(localStorageSpy).toHaveBeenCalled();
   });
-
 });

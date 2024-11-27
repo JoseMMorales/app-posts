@@ -1,13 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  BehaviorSubject,
-  Subject,
-  debounceTime,
-  fromEvent,
-  takeUntil,
-} from 'rxjs';
+import { BehaviorSubject, debounceTime, fromEvent, takeUntil } from 'rxjs';
 import { DestroyService } from '../../services/destroy/destroy.service';
 
 @Component({
@@ -15,8 +10,7 @@ import { DestroyService } from '../../services/destroy/destroy.service';
   template: `<button
     *ngIf="showBtn$ | async"
     (click)="scrollToTop()"
-    class="button-top"
-  >
+    class="button-top">
     <mat-icon>arrow_upward</mat-icon>
   </button>`,
   styleUrls: ['./button-top.component.scss'],

@@ -24,7 +24,7 @@ describe('DialogService', () => {
   });
 
   it('should dispatch dialog container', () => {
-    service.dialogDispatch('title', 'submit').subscribe((res) => {
+    service.dialogDispatch('title', 'submit').subscribe(res => {
       expect(res).toEqual(postMocked);
     });
   });

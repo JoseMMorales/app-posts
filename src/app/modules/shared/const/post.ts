@@ -8,7 +8,7 @@ export const emptyPost: Post = {
   comments: [],
 };
 
-export const titleCreateForm: string = 'Create Post';
-export const buttonTextCreateForm: string = 'Create';
-export const titleEditForm: string = 'Edit Post';
-export const buttonTextEditForm: string = 'Edit';
+export const titleCreateForm = 'Create Post';
+export const buttonTextCreateForm = 'Create';
+export const titleEditForm = 'Edit Post';
+export const buttonTextEditForm = 'Edit';

@@ -11,14 +11,14 @@ export class PostHttpService {
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<Post[]> {
-    const endPoint: string = `${environment.baseURL}/posts`;
+    const endPoint = `${environment.baseURL}/posts`;
 
     return this.http.get<Post[]>(endPoint);
   }
 
   createPost(post: Post): Observable<Post> {
     const { title, body, userId } = post;
-    const endPoint: string = `${environment.baseURL}/posts`;
+    const endPoint = `${environment.baseURL}/posts`;
     const bodyToSend: Post = {
       title: title,
       body: body,
@@ -29,7 +29,7 @@ export class PostHttpService {
   }
 
   updatePost(post: Post): Observable<Post> {
-    const endPoint: string = `${environment.baseURL}/posts/${post.id}`;
+    const endPoint = `${environment.baseURL}/posts/${post.id}`;
     const body: Post = {
       id: post.id,
       title: post.title,
@@ -41,13 +41,13 @@ export class PostHttpService {
   }
 
   deletePost(id: number): Observable<void> {
-    const endPoint: string = `${environment.baseURL}/posts/${id}`;
+    const endPoint = `${environment.baseURL}/posts/${id}`;
 
     return this.http.delete<void>(endPoint);
   }
 
   getPostComments(): Observable<Comment[]> {
-    const endPoint: string = `${environment.baseURL}/comments`;
+    const endPoint = `${environment.baseURL}/comments`;
 
     return this.http.get<Comment[]>(endPoint);
   }
